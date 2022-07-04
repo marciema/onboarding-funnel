@@ -158,7 +158,12 @@ where idv_complete_dt is null
 
 
 select
-*
+idv.cohort_date,
+IDV_COMPLETE_CNT,
+FIRST_PMT_CNT,
+PMT_GT_5K_CNT,
+GPV_GT_25K_90DAY_CNT,
+GPV_GT_25K_365DAY_CNT
 from (select cohort_date,count(distinct user_token) as IDV_COMPLETE_CNT
       from target_biz_type_users u
       left join cohort c
